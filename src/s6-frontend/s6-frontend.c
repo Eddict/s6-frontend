@@ -106,7 +106,7 @@ int main (int argc, char const *const *argv)
   if (wgola[GOLA_VERBOSITY] && !uint0_scan(wgola[GOLA_VERBOSITY], &g->verbosity))
     strerr_dief1x(100, "verbosity must be an unsigned integer") ;
 
-  if (wgolb & GOLB_VERSION) version(argv) ;
+  if (wgolb & GOLB_VERSION) version(argv, &options);
   if (wgolb & GOLB_HELP) help(argv) ;
   if (wgolb & (GOLB_VERSION | GOLB_HELP)) return 0 ;
 
@@ -143,5 +143,5 @@ int main (int argc, char const *const *argv)
   if (!*argv) dieusage() ;
   cmd = BSEARCH(struct command_s, *argv, commands) ;
   if (!cmd) dieusage() ;
-  return (*cmd->f)(++argv) ;
+  return (*cmd->f)(++argv, &options);
 }

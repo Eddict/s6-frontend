@@ -26,7 +26,7 @@
 extern int process_help (char const *const *) ;
 extern int service_help (char const *const *) ;
 
-extern int help (char const *const *) ;
+extern int help(const char *const *, const process_options *);
 
 
  /* process */
@@ -58,7 +58,7 @@ extern int service_start (char const *const *) ;
 extern int service_status (char const *const *) ;
 extern int service_stop (char const *const *) ;
 
-extern int service (char const *const *) ;
+extern int service(const char *const *, const process_options *);
 
 
  /* main */
@@ -107,6 +107,6 @@ struct command_s
 
 extern struct global_s *g ;
 
-extern int version (char const *const *) ;
+extern int version(const char *const *, const process_options *);
 
 #endif
