@@ -16,8 +16,9 @@ static struct command_s const service_commands[] =
   { .s = "stop", .f = &service_stop },
 } ;
 
-int service (char const *const *argv)
-{
+int service(const char *const *argv, const process_options *opts) {
+  (void)argv;
+  (void)opts;
   struct command_s *cmd ;
 
   PROG = "s6-frontend: service" ;

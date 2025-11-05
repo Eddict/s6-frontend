@@ -18,9 +18,11 @@ static int print_help (char const *msg)
   return 0 ;
 }
 
-int process_help (char const* const *argv)
+// NEW: updated signatures to match commands[] declaration:
+int process_help (char const* const *argv, const process_options *opts)
 {
   (void)argv ;
+  (void)opts ;
   return print_help(PROCESS_HELP_MESSAGE) ;
 }
 

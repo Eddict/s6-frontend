@@ -27,9 +27,9 @@ struct modif_s const cleanup_modif =
   .n = 7
 } ;
 
-int version (char const *const *argv)
-{
-  (void)argv ;
+int version(const char *const *argv, const process_options *opts) {
+  (void)argv;
+  (void)opts;
   if (!buffer_putsflush(buffer_1, "s6-frontend v" S6_FRONTEND_VERSION "\n"))
     strerr_diefu1sys(111, "write to stdout") ;
   return 0 ;
