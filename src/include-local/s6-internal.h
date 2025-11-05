@@ -39,6 +39,8 @@ struct process_options_s
 } ;
 #define PROCESS_OPTIONS_ZERO { .flags = 0, .timeout = 0 }
 
+typedef int (*process_func_t)(const char *const *, const process_options *);
+
 extern void process_check_services (char const *const *, size_t) ;
 extern void process_send_svc (char const *, char const *const *, size_t, unsigned int) gccattr_noreturn ;
 
@@ -48,8 +50,7 @@ extern void process_start (char const *const *, process_options const *) gccattr
 extern void process_stop (char const *const *, process_options const *) gccattr_noreturn ;
 extern int process_status (char const *const *, process_options const *) ;
 
-extern int process (char const *const *) ;
-
+extern int process (char const *const *, const process_options *); 
 
  /* service */
 
@@ -99,9 +100,9 @@ extern struct modif_s const cleanup_modif ;
 
 struct command_s
 {
-  char const *s ;
-  main_func_ref f ;
-} ;
+  const char *s;
+  process_func_t f;
+};
 #define COMMAND_ZERO { .s = 0, .f = 0 }
 
 extern struct global_s *g ;

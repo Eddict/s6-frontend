@@ -17,6 +17,24 @@
 #define USAGE "s6 process [ process options ] subcommand [ subcommand options ] services... Type \"s6 process help\" for details."
 #define dieusage() strerr_dieusage(100, USAGE)
 
+static const struct command_s process_commands[] =
+{
+  { "help", process_help },
+  { "kill", process_kill },
+  { "restart", process_restart },
+  { "start", process_start },
+  { "status", process_status },
+  { "stop", process_stop },
+};
+
+int process (char const *const *argv)
+{
+  /* ...existing option and variable code... */
+  cmd = BSEARCH(struct command_s, *argv, process_commands) ;
+  if (!cmd) dieusage() ;
+  return cmd->f(++argv, &options);
+}
+
 static int check_service (char const *name, size_t scandirlen)
 {
   struct stat st ;
