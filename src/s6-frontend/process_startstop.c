@@ -8,7 +8,7 @@
 #include <skalibs/strerr.h>
 #include <skalibs/gol.h>
 
-#include "s6-frontend-internal.h"
+#include "s6-internal.h"
 
 static void process_startstop (char const *const *argv, process_options const *options, int h) gccattr_noreturn ;
 static void process_startstop (char const *const *argv, process_options const *options, int h)

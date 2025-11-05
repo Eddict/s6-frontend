@@ -16,7 +16,7 @@
 #include <s6/supervise.h>
 
 #include "s6f.h"
-#include "s6-frontend-internal.h"
+#include "s6-internal.h"
 
 #define USAGE "s6 process kill [ --signal=sig ] services..."
 #define dieusage() strerr_dieusage(100, USAGE)

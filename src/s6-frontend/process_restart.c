@@ -7,7 +7,7 @@
 #include <skalibs/strerr.h>
 #include <skalibs/gol.h>
 
-#include "s6-frontend-internal.h"
+#include "s6-internal.h"
 
 #define USAGE "s6 process restart [ -W|--nowait ] services..."
 #define dieusage() strerr_dieusage(100, USAGE)
