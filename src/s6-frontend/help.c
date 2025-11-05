@@ -19,21 +19,23 @@ static int print_help (char const *msg)
 }
 
 // NEW: updated signatures to match commands[] declaration:
-int process_help (char const* const *argv, const process_options *opts)
+int process_help(const char *const *argv, const process_options *opts)
 {
   (void)argv ;
   (void)opts ;
   return print_help(PROCESS_HELP_MESSAGE) ;
 }
 
-int service_help (char const* const *argv)
+int service_help (const char *const *argv, const process_options *opts)
 {
   (void)argv ;
+  (void)opts ;
   return print_help(SERVICE_HELP_MESSAGE) ;
 }
 
-int help (char const *const *argv)
+int help(const char *const *argv, const process_options *opts)
 {
-  (void)argv ;
+  (void)argv;
+  (void)opts;
   return print_help(MAIN_HELP_MESSAGE) ;
 }

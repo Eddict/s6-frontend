@@ -47,16 +47,15 @@ extern int process (char const *const *, const process_options *);
 
  /* help */
 
-extern int process_help (char const *const *) ;
-extern int service_help (char const *const *) ;
-
+extern int process_help(const char *const *, const process_options *);
+extern int service_help(const char *const *, const process_options *);
 extern int help(const char *const *, const process_options *);
 
  /* service */
 
-extern int service_start (char const *const *) ;
-extern int service_status (char const *const *) ;
-extern int service_stop (char const *const *) ;
+extern int service_start(const char *const *, const process_options *);
+extern int service_status(const char *const *, const process_options *);
+extern int service_stop(const char *const *, const process_options *);
 
 extern int service(const char *const *, const process_options *);
 
