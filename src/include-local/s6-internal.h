@@ -40,7 +40,7 @@ struct process_options_s
 #define PROCESS_OPTIONS_ZERO { .flags = 0, .timeout = 0 }
 
 extern void process_check_services (char const *const *, size_t) ;
-extern int process_send_svc (char const *, char const *const *, size_t, unsigned int) gccattr_noreturn ;
+extern void process_send_svc (char const *, char const *const *, size_t, unsigned int) gccattr_noreturn ;
 
 extern int process_kill (char const *const *, process_options const *) ;
 extern void process_restart (char const *const *, process_options const *) gccattr_noreturn ;
