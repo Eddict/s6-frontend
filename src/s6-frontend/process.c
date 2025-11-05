@@ -87,8 +87,10 @@ enum gola_e
   GOLA_N
 } ;
 
-int process (char const *const *argv)
+int process(const char *const *argv, const process_options *opts)
 {
+  (void)argv;
+  (void)opts;
   static const struct command_s process_commands[] =
   {
     { "help", process_help },
