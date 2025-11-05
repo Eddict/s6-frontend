@@ -17,16 +17,6 @@
 #define USAGE "s6 process [ process options ] subcommand [ subcommand options ] services... Type \"s6 process help\" for details."
 #define dieusage() strerr_dieusage(100, USAGE)
 
-static const struct command_s process_commands[] =
-{
-  { "help", process_help },
-  { "kill", process_kill },
-  { "restart", process_restart },
-  { "start", process_start },
-  { "status", process_status },
-  { "stop", process_stop },
-};
-
 static int check_service (char const *name, size_t scandirlen)
 {
   struct stat st ;
@@ -99,15 +89,15 @@ enum gola_e
 
 int process (char const *const *argv)
 {
-  static struct command_s const process_commands[] =
+  static const struct command_s process_commands[] =
   {
-    { .s = "help", .f = &process_help },
-    { .s = "kill", .f = &process_kill },
-    { .s = "restart", .f = &process_restart },
-    { .s = "start", .f = &process_start },
-    { .s = "status", .f = &process_status },
-    { .s = "stop", .f = &process_stop },
-  } ;
+    { "help", process_help },
+    { "kill", process_kill },
+    { "restart", process_restart },
+    { "start", process_start },
+    { "status", process_status },
+    { "stop", process_stop },
+  };
   static gol_bool const rgolb[] =
   {
     { .so = 'W', .lo = "nowait", .clear = GOLB_WAIT, .set = 0 },
@@ -131,3 +121,4 @@ int process (char const *const *argv)
   if (!cmd) dieusage() ;
   return (*cmd->f)(++argv, &options) ;
 }
+
