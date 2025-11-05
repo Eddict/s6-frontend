@@ -16,19 +16,6 @@
 #include <s6-frontend/config.h>
 #include "s6f.h"
 
- /* util */
-
-#define BSEARCH(type, key, array) bsearch(key, (array), sizeof(array)/sizeof(type), sizeof(type), &str_cmp)
-
-
- /* help */
-
-extern int process_help (char const *const *) ;
-extern int service_help (char const *const *) ;
-
-extern int help(const char *const *, const process_options *);
-
-
  /* process */
 
 typedef struct process_options_s process_options, *process_options_ref ;
@@ -51,6 +38,19 @@ extern void process_stop (char const *const *, process_options const *) gccattr_
 extern int process_status (char const *const *, process_options const *) ;
 
 extern int process (char const *const *, const process_options *); 
+
+
+/* util */
+
+#define BSEARCH(type, key, array) bsearch(key, (array), sizeof(array)/sizeof(type), sizeof(type), &str_cmp)
+
+
+ /* help */
+
+extern int process_help (char const *const *) ;
+extern int service_help (char const *const *) ;
+
+extern int help(const char *const *, const process_options *);
 
  /* service */
 

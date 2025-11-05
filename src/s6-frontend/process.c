@@ -27,14 +27,6 @@ static const struct command_s process_commands[] =
   { "stop", process_stop },
 };
 
-int process (char const *const *argv)
-{
-  /* ...existing option and variable code... */
-  cmd = BSEARCH(struct command_s, *argv, process_commands) ;
-  if (!cmd) dieusage() ;
-  return cmd->f(++argv, &options);
-}
-
 static int check_service (char const *name, size_t scandirlen)
 {
   struct stat st ;

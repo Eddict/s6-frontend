@@ -106,8 +106,9 @@ int main (int argc, char const *const *argv)
   if (wgola[GOLA_VERBOSITY] && !uint0_scan(wgola[GOLA_VERBOSITY], &g->verbosity))
     strerr_dief1x(100, "verbosity must be an unsigned integer") ;
 
+  process_options options = PROCESS_OPTIONS_ZERO;
   if (wgolb & GOLB_VERSION) version(argv, &options);
-  if (wgolb & GOLB_HELP) help(argv) ;
+  if (wgolb & GOLB_HELP) help(argv, &options) ;
   if (wgolb & (GOLB_VERSION | GOLB_HELP)) return 0 ;
 
   if (wgola[GOLA_SCANDIR]) g->dirs.scan = wgola[GOLA_SCANDIR] ;
